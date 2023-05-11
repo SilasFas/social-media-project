@@ -13,19 +13,17 @@ export const Navbar = () => {
     }
 
     return (
-        <div>
-            <nav className={styles.navbar}>
-                <ul className={styles.list}>
-                    <li><Link to='/' >Home</Link></li>
-                    <li><Link to='/login' >Login</Link></li>
-                </ul>
+        <div className={styles.navbar}>
+            <nav>
+                <Link to='/' >Home</Link>
+                {!user && <Link to='/login' >Login</Link>}
             </nav>
-            <div>
+            <div className={styles.info}>
                 {user && (
                     <>
-                        <p>{user?.displayName}</p>
-                        <img referrerPolicy="no-referrer" src={user?.photoURL || ""} width="100" height="100" />
                         <button onClick={signUserOut}>Log Out</button>
+                        <p>{user?.displayName}</p>
+                        <img referrerPolicy="no-referrer" src={user?.photoURL || ""} />
                     </>
                 )}
             </div>

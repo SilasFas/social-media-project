@@ -1,0 +1,9 @@
+.parent {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.parent p {
+    text-align: center;
+    margin-bottom: 20px;
+}

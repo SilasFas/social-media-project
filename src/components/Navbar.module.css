@@ -4,18 +4,55 @@
 #cdc7e5 - roxo claro
 */
 
-
 .navbar {
+    padding: 16px 0px;
+    background-color: #7776bc;
     display: flex;
-    justify-content: space-between;
-    background-color: aqua;
-    padding: 1em;
+    justify-content: flex-end;
+    align-items: center;
 }
 
-.list {
-    display: flex;
-    list-style: none;
-    align-items: center;
-    list-style-type: none;
+.navbar a {
+    font-weight: bolder;
+    padding-right: 15px;
+
+    color: white;
+    text-decoration: none;
 }
- 
+
+.navbar a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 25%;
+}
+
+.navbar .info {
+    width: 300px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar p {
+    font-weight: bolder;
+    color: white;
+    padding-right: 20px;
+    margin-left: 15px;
+}
+
+.navbar button {
+    background: none;
+    color: white;
+    border: none;
+    font-weight: bolder;
+    font-size: 1em;
+}
+
+.navbar button:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 25%;
+}
+
+.navbar img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
