@@ -1,0 +1,21 @@
+/* 
+#00ffff - aqua-marine 
+#7776bc - roxo escuro
+#cdc7e5 - roxo claro
+*/
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: aqua;
+    padding: 1em;
+}
+
+.list {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    list-style-type: none;
+}
+ 
