@@ -30,7 +30,6 @@ export const CreateForm = () => {
     return (
         <form onSubmit={handleSubmit(onCreatePost)} className={styles.parent}>
 
-
             <input type="text" placeholder='Title...' {...register('Title')} />
             <p style={{ color: 'red' }}>{errors.Title?.message}</p>
 
@@ -38,7 +37,6 @@ export const CreateForm = () => {
             <p style={{ color: 'red' }}>{errors.Description?.message}</p>
 
             <input type="submit" value="Post" />
-
 
         </form >
     )
