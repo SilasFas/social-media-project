@@ -16,7 +16,11 @@ export const Navbar = () => {
         <div className={styles.navbar}>
             <nav>
                 <Link to='/' >Home</Link>
-                {!user && <Link to='/login' >Login</Link>}
+                {!user ? (
+                    <Link to='/login' >Login</Link>
+                ) : (
+                    <Link to='/createpost' >Create Post</Link>
+                )}
             </nav>
             <div className={styles.info}>
                 {user && (
