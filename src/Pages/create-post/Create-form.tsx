@@ -44,16 +44,16 @@ export const CreateForm = () => {
     }
 
     return (
-        <div className={styles.parent}>
+        <div className={styles.container}>
             <form onSubmit={handleSubmit(onCreatePost)}>
 
-                <input type="text" placeholder='Title...' {...register('title')} className={styles.silas} />
+                <input type="text" placeholder='Title...' {...register('title')} />
                 <p style={{ color: 'red' }}>{errors.title?.message}</p>
 
                 <textarea placeholder='Description...' {...register('description')}></textarea>
                 <p style={{ color: 'red' }}>{errors.description?.message}</p>
 
-                <input className={styles.submit} type="submit" value="Post" />
+                <input type="submit" value="Post" className={styles.post} />
             </form >
         </div>
     )

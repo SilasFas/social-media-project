@@ -1,3 +1,56 @@
-.parent {
-    text-align: center;
+/* 
+#00ffff - aqua-marine 
+#7776bc - roxo escuro
+#cdc7e5 - roxo claro
+*/
+
+.container {
+    width: 100vw;
+    height: 92vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    border: none;
+    height: 300px;
+    width: 500px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 2px #7776bc;
+    background-color: #7776bc;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+input {
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+}
+
+textarea {
+    width: 200px;
+    height: 75px;
+    border-radius: 10px;
+    padding: 7px;
+    margin-top: 25px;
+}
+
+.container .post {
+    color: purple;
+    width: 15%;
+    height: 10%;
+    border-radius: 10px;
+    border: none;
+    margin-top: 25px;   
+}
+
+.container .post:hover {
+    background-color: #00ffff;
+    cursor: pointer;
 }
