@@ -2,17 +2,24 @@ import styles from './create-form.module.css'
 import { useForm } from "react-hook-form"
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { addDoc, collection } from 'firebase/firestore'
+import { database, auth } from '../../config/firebase'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { useNavigate } from 'react-router-dom'
 
 interface CreateformData {
-    Title: string
-    Description: string
+    title: string
+    description: string
 }
 
 export const CreateForm = () => {
 
+    const [user] = useAuthState(auth)
+    const navigate = useNavigate()
+
     const schema = yup.object().shape({
-        Title: yup.string().required('You must add a tille'),
-        Description: yup.string().required('You must add a description'),
+        title: yup.string().required('You must add a tille'),
+        description: yup.string().required('You must add a description'),
     })
 
     const {
@@ -23,21 +30,31 @@ export const CreateForm = () => {
         resolver: yupResolver(schema)
     })
 
-    const onCreatePost = (data: CreateformData) => {
-        console.log(data)
+    const postsRef = collection(database, 'posts')
+
+    const onCreatePost = async (data: CreateformData) => {
+        await addDoc(postsRef, {
+            // title: data.title,
+            // description: data.description,
+            ...data,
+            username: user?.displayName,
+            userId: user?.uid,
+        })
+        navigate("/")
     }
 
     return (
-        <form onSubmit={handleSubmit(onCreatePost)} className={styles.parent}>
+        <div className={styles.parent}>
+            <form onSubmit={handleSubmit(onCreatePost)}>
 
-            <input type="text" placeholder='Title...' {...register('Title')} />
-            <p style={{ color: 'red' }}>{errors.Title?.message}</p>
+                <input type="text" placeholder='Title...' {...register('title')} className={styles.silas} />
+                <p style={{ color: 'red' }}>{errors.title?.message}</p>
 
-            <textarea placeholder='Description...' {...register('Description')}></textarea>
-            <p style={{ color: 'red' }}>{errors.Description?.message}</p>
+                <textarea placeholder='Description...' {...register('description')}></textarea>
+                <p style={{ color: 'red' }}>{errors.description?.message}</p>
 
-            <input type="submit" value="Post" />
-
-        </form >
+                <input className={styles.submit} type="submit" value="Post" />
+            </form >
+        </div>
     )
 }
