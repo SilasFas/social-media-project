@@ -6,7 +6,7 @@ import { Navbar } from './components/Navbar';
 
 //Pages
 import { Login } from './Pages/Login';
-import { Home } from './Pages/Home';
+import { Home } from './Pages/home/Home';
 import { CreatePost } from './Pages/create-post/CreatePost';
 
 
